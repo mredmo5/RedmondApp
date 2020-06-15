@@ -38,6 +38,11 @@ var express     = require("express")
     })
     app.get("/todo" , function(req, res){
         res.render("todo");
+        
+    })
+    app.get("/resume" , function(req, res){
+        res.render("resume");
+        
     })
     // var indexRoutes = require("./routes/index");
 
