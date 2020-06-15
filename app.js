@@ -44,6 +44,14 @@ var express     = require("express")
         res.render("resume");
         
     })
+    app.get("/contact" , function(req, res){
+        res.render("contact");
+        
+    })
+    app.post("/" , function(req, res){
+        res.sned("This is the Post route");
+        
+    })
     // var indexRoutes = require("./routes/index");
 
 
