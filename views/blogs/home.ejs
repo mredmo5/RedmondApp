@@ -1,0 +1,46 @@
+<%- include("../partials/header") %>
+
+
+
+<div class="container">
+    <header class="jumbotron">
+        <div class="container text-center">
+            
+            
+            <h4>Welcome!</h4>
+            <p>View our hand-picked Blogs!</p>
+        </div>
+    </header>
+
+    <div class="row text-center" style="display: flex; flex-wrap: wrap;">
+    
+        <% blogs.forEach(function(blog){ %>
+            <div class="col-md-4 col-s-6">
+                <div class="thumbnail">
+                    <img src="<%= blog.image %> "> 
+                    <div class="caption">
+                         <h4> <%= blog.title %>  </h4> 
+                    </div>
+                    <p>
+                        <a href="/blogs/<%= blog._id %>" class="btn btn-primary mb-2">More Info</a>
+                    </p>
+                    
+                </div>
+            </div>
+            
+        <% }); %>
+    
+    </div>
+    <% if(currentUser){ %>
+    <a href="/blogs/new">Add a New blog!!</a>
+    <% } %>
+</div>
+
+
+
+
+
+
+
+
+<%- include("../partials/footer") %>

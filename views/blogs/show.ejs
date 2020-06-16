@@ -1,0 +1,50 @@
+<%- include("../partials/header") %>
+<div class="container">
+    <strong><h3 class=" pb-2 title text-center"><%= blog.title %>  </h3></strong>
+    <div class="row">
+        
+        <div class="col-md-8">
+            <div class="thumbnail">
+                <img class="img-responsive" src= "<%= blog.image %>">
+                <div class="caption-full">
+                   
+                    <h5 class="price">$ <%= blog.body %></h5>
+
+
+                    
+                    <p>
+                       <!-- <em>Submitted By  </em>   -->
+                    </p>
+                    <% if(currentUser){ %>
+                    <a class="btn btn-warning" href="/blogs/<%=blog._id%>/edit">Edit Blog</a>
+                    <form id="deleteform" action="/blogs/<%=blog._id%>?_method=DELETE" method="POST">
+                        <button class="btn btn-danger"> Delete Blog</button>
+                    </form>
+                    <% } %> 
+                </div>
+               
+            </div>
+
+        </div>
+        <div class="col-md-4">
+            <div class="list-group">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
