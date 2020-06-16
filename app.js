@@ -1,8 +1,15 @@
 var express     = require("express")
     app         = express(),
     bodyParser  = require("body-parser"),
-    mongoose    = require("mongoose");
+    mongoose    = require("mongoose"),
+    passport    = require("passport"),
+    LocalStrategy = require("passport-local"),
+    MethodOverride = require("method-override"),
+    User         = require("./models/user"),
+    Blog  = require("./models/blog");
 
+    var blogRoutes = require("./routes/blogs"),
+        indexRoutes = require("./routes/index");
 
   
     mongoose.connect("mongodb+srv://matredmo:password1234@cluster0-3w6zg.mongodb.net/RedmondApp?retryWrites=true&w=majority", {
@@ -22,38 +29,10 @@ var express     = require("express")
         console.log("App has Started...");
     });
 
-    app.get("/", function(req, res){
-        res.redirect("index");
-    });
-    
-    
-    app.get("/index" , function(req, res){
-        res.render("index");
-    })
-    app.get("/about" , function(req, res){
-        res.render("about");
-    })
-    app.get("/nonprofit" , function(req, res){
-        res.render("nonprofit");
-    })
-    app.get("/todo" , function(req, res){
-        res.render("todo");
-        
-    })
-    app.get("/resume" , function(req, res){
-        res.render("resume");
-        
-    })
-    app.get("/contact" , function(req, res){
-        res.render("contact");
-        
-    })
-    app.post("/" , function(req, res){
-        res.sned("This is the Post route");
-        
-    })
-    // var indexRoutes = require("./routes/index");
 
 
-    // app.use(indexRoutes);
+ 
+
+    app.use(indexRoutes);
+    // app.use("/blog", blogRoutes);
 
